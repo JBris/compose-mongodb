@@ -1,2 +1,3 @@
 # compose-mongodb
-Docker image for running MongoDB locally
+
+Docker configuration for running MongoDB locally

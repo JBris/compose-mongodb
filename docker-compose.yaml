@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  mongodb:
+    image: mongo:${MONGODB_TAG}
+    container_name: mongodb
+    hostname: mongodb
+    restart: unless-stopped
+    stop_grace_period: 10s
+    environment:
+      MONGO_INITDB_DATABASE: config
+      MONGO_INITDB_ROOT_USERNAME: $MONGO_INITDB_ROOT_USERNAME
+      MONGO_INITDB_ROOT_PASSWORD: $MONGO_INITDB_ROOT_PASSWORD
+    ports:
+      - ${MONGODB_PORT}:27017
+    volumes:
+      - ./config/mongod.conf:/etc/mongod.conf
+      - mongodb_data:/data/db
+    command: ["mongod", "--config", "/etc/mongod.conf"]
+
+volumes:
+  mongodb_data:
