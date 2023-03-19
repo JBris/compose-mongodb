@@ -7,10 +7,9 @@ services:
     hostname: mongodb
     restart: unless-stopped
     stop_grace_period: 10s
-    environment:
-      MONGO_INITDB_DATABASE: config
-      MONGO_INITDB_ROOT_USERNAME: $MONGO_INITDB_ROOT_USERNAME
-      MONGO_INITDB_ROOT_PASSWORD: $MONGO_INITDB_ROOT_PASSWORD
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: $MONGO_INITDB_ROOT_USERNAME
+    #   MONGO_INITDB_ROOT_PASSWORD: $MONGO_INITDB_ROOT_PASSWORD
     ports:
       - ${MONGODB_PORT}:27017
     volumes:
